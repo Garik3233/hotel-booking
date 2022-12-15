@@ -1,0 +1,13 @@
+.user {
+  height: 270px;
+}
+
+.user_board {
+  height: 90%;
+  padding: 40px;
+  box-shadow: 2px 4px 8px grey;
+}
+
+.avatar {
+  width: 100px;
+}

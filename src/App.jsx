@@ -17,8 +17,8 @@ import AddHotel from './components/hotels/AddHotel';
 import EditHotel from './components/hotels/EditHotel';
 import SearchResult from './pages/SearchResult';
 import StripeCallback from './components/stripe/StripeCallback';
-import StripeSuccess from "./components/stripe/StripeSuccess";
-import StripeCancel from "./components/stripe/StripeCancel";
+import StripeSuccess from './components/stripe/StripeSuccess';
+import StripeCancel from './components/stripe/StripeCancel';
 
 const App = () => {
   return (
@@ -37,18 +37,8 @@ const App = () => {
             </PrivateRoute>
           }
         >
-          <Route
-            path="/dashboard/bookings"
-            element={
-                <Bookings />
-            }
-          />
-          <Route
-            path="/dashboard/seller"
-            element={
-                <Seller />
-            }
-          />
+          <Route path="/dashboard/bookings" element={<Bookings />} />
+          <Route path="/dashboard/seller" element={<Seller />} />
         </Route>
         <Route path="/hotels/:id" element={<SingleHotel />} />
         <Route
@@ -92,7 +82,6 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        
 
         <Route path="*" element={<Error />} />
       </Routes>

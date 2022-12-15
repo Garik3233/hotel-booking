@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavDropdown } from 'react-bootstrap';
-
+import './Header.css';
 
 const Header = () => {
   const { auth } = useSelector((state) => ({ ...state }));
@@ -24,17 +24,18 @@ const Header = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="nav">
       <Container>
-        <Link to="/" className="navbar-brand"> Booking
+        <Link to="/" className="navbar_brand">
+          HB
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
-          <Nav className="me-auto d-flex justify-content-between w-100">
+          <Nav className="me-auto d-flex justify-content-end w-100 nav">
             <>
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
             </>
             {auth && auth.token ? (
               <NavDropdown align="end" className="" title={auth.user.name}>

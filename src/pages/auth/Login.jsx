@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 // Bootstrap
+import './Login.css';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -44,12 +45,15 @@ const Login = () => {
   return (
     <Container>
       <Row>
-        <Col md={{ span: 4, offset: 4 }} className="mt-4">
+        <Col
+          md={{ span: 4, offset: 4 }}
+          className="mt-4 login_form text-center"
+        >
           <div className="h3">Welcome</div>
           <p className="text-muted">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </p>
-          <Form onSubmit={loginHandler}>
+          <Form onSubmit={loginHandler} className="login_form_input">
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -68,12 +72,19 @@ const Login = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" disabled={loading}>
-              {loading && (
-                <Spinner animation="border" className="spinner-custom" />
-              )}
-              Sign in
-            </Button>
+            <div className="login_btn">
+              <Button
+                className="btn"
+                variant="primary"
+                type="submit"
+                disabled={loading}
+              >
+                {loading && (
+                  <Spinner animation="border" className="spinner-custom" />
+                )}
+                Sign in
+              </Button>
+            </div>
             <p className="mt-4">
               <small className="text-muted">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.

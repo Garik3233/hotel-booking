@@ -1,16 +1,20 @@
 import { useSelector } from 'react-redux';
 import moment from 'moment/moment';
-import {useState, useEffect} from "react";
+import { useState, useEffect } from 'react';
 
 // Bootstrap
 import { Card, Col } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
-import { FiSettings } from "react-icons/fi";
+import { FiSettings } from 'react-icons/fi';
+import './UserInfo.css';
 
-import { currencyFormatter, getAccountBalance, payoutSetting } from "../../actions/stripe";
-
+import {
+  currencyFormatter,
+  getAccountBalance,
+  payoutSetting,
+} from '../../actions/stripe';
 
 const UserInfo = () => {
   const { auth } = useSelector((state) => ({ ...state }));
@@ -23,7 +27,7 @@ const UserInfo = () => {
       // console.log("RES FOR PAYOUT SETTING LINK", res);
       window.location.href = res.data.url;
     } catch (err) {
-      console.log("Unable to access settings. Try again");
+      console.log('Unable to access settings. Try again');
     }
   };
 
@@ -34,15 +38,16 @@ const UserInfo = () => {
   }, []);
 
   return (
-    <Container className="mt-4 mb-4">
+    <Container className="mt-4 mb-4 user">
       <Row>
         <Col ms={4} className="mb-2">
-          <Card body>
+          <Card body className="user_board">
             <div className="d-flex gap-3">
               <div>
                 <Image
-                  src={`https://via.placeholder.com/70x70?text=${user.name[0]}`}
+                  src={`https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?text=${user.name[0]}`}
                   rounded
+                  className="avatar"
                 />
               </div>
               <div>
@@ -56,19 +61,24 @@ const UserInfo = () => {
         {auth?.user?.stripe_seller?.charges_enabled && (
           <>
             <Col md={4} className="mb-2">
-              <Card body>Avaliable: {balance &&
+              <Card body className="user_board">
+                Avaliable:{'   '}
+                {balance &&
                   balance.pending &&
                   balance.pending.map((bp, i) => (
                     <span key={i} className="lead">
                       {currencyFormatter(bp)}
                     </span>
-                  ))}</Card>
-            
-              
+                  ))}
+              </Card>
             </Col>
             <Col md={4} className="mb-2">
-              <Card body>Payouts
-                <span onClick={handlePayoutSettings} className="bg-light pointer">
+              <Card body className="user_board">
+                Payouts
+                <span
+                  onClick={handlePayoutSettings}
+                  className="bg-light pointer"
+                >
                   <FiSettings className="h5 pt-2" />
                 </span>
               </Card>
@@ -79,6 +89,5 @@ const UserInfo = () => {
     </Container>
   );
 };
-
 
 export default UserInfo;

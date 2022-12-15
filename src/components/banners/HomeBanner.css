@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.home-banner {
+  height: 600px;
+  background-image: url('h1.jpg');
+  position: relative;
+  margin-bottom: 30px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+.banner_text p {
+  font-size: 160px;
+  color: #fde02f;
+  text-align: center;
+  line-height: 600px;
+  font-family: 'Dancing Script', cursive;
+}

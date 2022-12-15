@@ -63,12 +63,12 @@ const AddHotel = () => {
   };
   return (
     <>
-      <pre>{JSON.stringify(values)}</pre>
-      <div className="container-fluid bg-secondary p-5 text-center">
+      {/* <pre>{JSON.stringify(values)}</pre> */}
+      <div className="container-fluid p-5 text-center">
         <h2>Add Hotel</h2>
       </div>
 
-      <Container className="mt-4 mb-4">
+      <Container className="mt-4">
         <Row>
           <Col md={{ span: 4, offset: 2 }}>
             <label className="w-100 pointer">
@@ -164,7 +164,7 @@ const AddHotel = () => {
                 format="YYYY-MM-DD"
               />
               <div>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" className="mb-5">
                   Save
                 </Button>
               </div>

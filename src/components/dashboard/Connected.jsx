@@ -8,6 +8,7 @@ import { deleteHotel, sellerHotels } from '../../actions/hotels';
 import HotelCard from '../cards/HotelCard';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import './Connected.css';
 
 const Connected = () => {
   const { auth } = useSelector((state) => ({ ...state }));
@@ -47,11 +48,10 @@ const Connected = () => {
       <Row className="mt-4">
         <Col
           md={12}
-          className="mb-4 d-flex justify-content-between align-items-center"
+          className="mb-4 d-flex justify-content-center align-items-center y-hotel"
         >
-          <h3 className="mb-0">Your hotels</h3>
-          <Link to="/hotels/new" className="btn btn-primary">
-            + Add Hotel
+          <Link to="/hotels/new" className="btn btn-primary add-btn">
+            Add Hotel
           </Link>
         </Col>
       </Row>
@@ -76,7 +76,7 @@ const Connected = () => {
               );
             })
           ) : (
-            <h4 className="text-muted"> :( No Hotels Found!</h4>
+            <h4 className="text-muted"> No Hotels Found!</h4>
           )}
         </Row>
       </Container>

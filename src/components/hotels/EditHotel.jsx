@@ -72,7 +72,7 @@ const EditHotel = () => {
 
   return (
     <>
-      <div className="container-fluid bg-secondary p-5 text-center">
+      <div className="container-fluid p-5 text-center">
         <h2>Edit Hotel</h2>
       </div>
       {values && (
@@ -127,12 +127,6 @@ const EditHotel = () => {
                     }}
                     defaultValue={locationValue}
                   />
-                  {/* <Form.Control
-                  name="location"
-                  type="text"
-                  value={values.location}
-                  onChange={handleChange}
-                /> */}
                 </Form.Group>
 
                 <Form.Group className="mb-3">

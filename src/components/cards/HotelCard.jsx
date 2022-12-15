@@ -6,6 +6,7 @@ import { diffDays } from '../../actions/hotels';
 import moment from 'moment/moment';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router';
+import './HotelCard.css';
 
 const HotelCard = ({ hotel, isOwner = false, setSmShow, setId }) => {
   const navigate = useNavigate();
@@ -21,10 +22,11 @@ const HotelCard = ({ hotel, isOwner = false, setSmShow, setId }) => {
   };
 
   return (
-    <Card className="mb-4">
+    <Card className="mb-4 c-h">
       <Card.Img
         variant="top"
         src={`${import.meta.env.VITE_APP_API}/hotel/image/${hotel._id}`}
+        className="ci-h"
       />
       <Card.Body>
         <Card.Title>{hotel.title}</Card.Title>
@@ -52,7 +54,11 @@ const HotelCard = ({ hotel, isOwner = false, setSmShow, setId }) => {
         </Card.Text>
         {isOwner && (
           <div className="d-grid gap-2">
-            <Button variant="warning" onClick={navigateToEdit}>
+            <Button
+              variant="warning"
+              onClick={navigateToEdit}
+              style={{ color: 'yellow' }}
+            >
               Edit
             </Button>
             <Button variant="danger" onClick={openDeleteModal}>
